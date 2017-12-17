@@ -4,10 +4,13 @@
 
 [Adapted from DOGE](https://github.com/GXGOW/Docker-Dogecoin-fullnode)
 
-
 Run a Quarkcoin fullnode in an isolated Docker container. Still a work in progress. Will update to include a full blockchain update process.
 
-## How to install
+If you are new to Docker then you might [find the following helpful](http://itproguru.com/expert/2016/10/docker-create-container-change-container-save-as-new-image-and-connect-to-container/)
+
+This assumes you already have a machine (Ubuntu in this case) with Docker installed already. If not then [check out this guide](https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/#install-docker-ce)
+
+## How to use
 
 ### Build from source
 
@@ -26,5 +29,7 @@ chmod +x build.ps1
 Then you can access the running docker container with something like:
 docker attach quarknode
 ```
+
+Need to also define management of wallet files.
 
 
