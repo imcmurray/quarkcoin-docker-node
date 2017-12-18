@@ -34,9 +34,10 @@ fi
 ##process quick sync if tgz found
 if [ -f ~/blocks/blk00023.dat ]; then
     echo moving blocks
-    mkdir -p ~/.quarkcoin/blocks
-    mv ~/blocks ~/.quarkcoin/blocks
+    mkdir -p ~/.quarkcoin
+    mv ~/blocks ~/.quarkcoin
 fi
+
 
 ##Start quarkcoind daemon
 echo Running quarkd
