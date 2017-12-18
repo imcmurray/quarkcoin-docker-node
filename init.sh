@@ -31,11 +31,14 @@ if [ ! -f ~/.quarkcoin/quarkcoin.conf ]; then
     echo rpcpassword=$PWord >> ~/.quarkcoin/quarkcoin.conf
 fi
 
-##Remove bootstrap.dat.old if it exists
-if [ -f ~/.quarkcoin/bootstrap.dat.old ]; then
-    rm ~/.quarkcoin/bootstrap.dat.old
+##process quick sync if tgz found
+if [ -f ~/blocks/blk00023.dat ]; then
+    echo moving blocks
+    mkdir -p ~/.quarkcoin/blocks
+    mv ~/blocks ~/.quarkcoin/blocks
 fi
 
 ##Start quarkcoind daemon
 echo Running quarkd
-~/quarkcoin-bin/bin/quarkd -maxconnections=80 -printtoconsole -shrinkdebugfile
+#~/quarkcoin-bin/bin/quarkd -maxconnections=80 -printtoconsole -shrinkdebugfile
+~/quarkcoin-bin/bin/quarkd -maxconnections=80 -printtoconsole 
