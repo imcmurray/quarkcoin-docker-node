@@ -42,13 +42,13 @@ cd ~
 sudo docker stop quarknode
 
 # Use curl to download from Google drive (step 1):
-curl -c /tmp/cookies "https://drive.google.com/uc?export=download&id=1u7yvzEipAGjVW0nMH5pmBFWQ-SoNT2Qx" > /tmp/quark-block-download.html
+curl -c /tmp/cookies "https://drive.google.com/uc?export=download&id=1OAx2VqtnabZhLH-wO3gHc5F91sr6Qbfo" > /tmp/quark-block-download.html
 
 # Step 2 - actually perform the download (about 3 GB)
-curl -L -b /tmp/cookies "https://drive.google.com$(cat /tmp/quark-block-download.html | grep -Po 'uc-download-link" [^>]* href="\K[^"]*' | sed 's/\&amp;/\&/g')" > ~/qrk-blocks-dec-17-2017.tgz
+curl -L -b /tmp/cookies "https://drive.google.com$(cat /tmp/quark-block-download.html | grep -Po 'uc-download-link" [^>]* href="\K[^"]*' | sed 's/\&amp;/\&/g')" > ~/qrk-sync-dec-18-2017.tgz
 
 # Extract the contents
-tar xvfz qrk-blocks-dec-17-2017.tgz 
+tar xvfz qrk-sync-dec-18-2017.tgz 
 
 cd blocks
 

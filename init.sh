@@ -36,6 +36,7 @@ if [ -f ~/blocks/blk00023.dat ]; then
     echo moving blocks
     mkdir -p ~/.quarkcoin
     mv ~/blocks ~/.quarkcoin
+    mv ~/chainstate ~/.quarkcoin
 fi
 
 
