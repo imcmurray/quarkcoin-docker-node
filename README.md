@@ -4,15 +4,25 @@
 
 [Adapted from DOGE](https://github.com/GXGOW/Docker-Dogecoin-fullnode)
 
-Run a Quarkcoin fullnode in an isolated Docker container. Still a work in progress. Will update to include a full blockchain update process.
+Run a Quarkcoin fullnode in an isolated Docker container. Contains a full sync with the blockchain up to Dec 18th 2017. 
 
 If you are new to Docker then you might [find the following helpful](http://itproguru.com/expert/2016/10/docker-create-container-change-container-save-as-new-image-and-connect-to-container/)
 
-This assumes you already have a machine (Ubuntu in this case) with Docker installed already. If not then [check out this guide](https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/#install-docker-ce)
+This [Docker Cheat Sheet](https://github.com/wsargent/docker-cheat-sheet) is also a good overview of what Docker can do.
+
+This assumes you already have a machine (Ubuntu in this case) with Docker installed. If not then [check out this guide](https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/#install-docker-ce). Keep in mind that Docker can run on any platform, I'm picking Linux here just to show the generic commands.
 
 ## How to use
 
-### Build from source
+### Option 1: Download from Docker
+
+Just download the image and run it! Running the image will create a new container with a fresh wallet that is completely yours. The Docker image you download does not contain a wallet file, so whenever you execute the 'docker run' command you'll basically start from scratch again with a fresh wallet. However, the blockchain will still be reset back to the snapshot of Dec 18th 2017.
+
+```bash
+sudo docker run -d -p 8373:8373 --name quarknode imcm/quarknode:dec182017
+```
+
+### Option 2: Build from source
 
 ```bash
 # Clone the git repository
@@ -60,6 +70,50 @@ sudo docker start quarknode
 
 #done
 ```
+
+## Accessing the container
+
+**Important** Once a container has been created with either option above, remember to not follow either of the options again, unless you want to clear out your wallet.
+
+Also, when you initial start the container keep in mind that it can also take upto 45 minutes before it's on the network and actively participating. I think this is due to the limited amount of RAM on the virtual machines.
+
+Also, once you have a container running, the nice way to stop the container is to stop the Quark daemon first. Once Quark has been stopped them the container will automatically end since that was the only process that we told the container to execute.
+
+How to see what your quarknode is doing:
+
+```bash
+sudo docker attach --sig-proxy=false quarknode
+```
+
+This is view only and you can quit out of that command (CTRL+c) without causing any damage to the container. If you don't see anything pop up for a while, keep in mind that it can take upto 45 minutes for the daemon to be happy and join the network. Once joined it'll start outputting network information.
+
+if you want to run additional commands in the container, say to look at your wallet, create new addresses, and or send Quark, then you'll need to do the following:
+
+```bash
+sudo docker exec -it quarknode bash
+```
+
+and you'll be presented with a command line directly into the container. Once connected you can use something like the following to view the status of your quarknode:
+
+```bash
+quark-cli getinfo
+```
+
+
+## Stopping the container the right way:
+
+```bash
+sudo docker exec -it quarknode bash
+
+# To stop the Quark daemon
+quark-cli stop
+
+exit
+```
+
+Then you can exit out of the session and the container will automatically stop when the daemon has exited successfully. Keep in mind that my 512MB virtual server takes about 25 minutes for Quark to exit.
+
+
 
 ### Wallet management
 
