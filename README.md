@@ -42,7 +42,7 @@ docker attach quarknode
 
 ### Quick block update
 
-The following snapshot of blocks was taken Dec 17th 2017 and will help your quarknode get up to sync much faster than waitiing for a full sync to occur since you won't have to download all of the blocks from scratch. Trust me, this will save you bandwidth and time.
+The following snapshot of blocks was taken Dec 18th 2017 and will help your quarknode get up to sync much faster than waitiing for a full sync to occur since you won't have to download all of the blocks from scratch. Trust me, this will save you bandwidth and time.
 
 ```bash
 # cd your home directory 
@@ -75,7 +75,7 @@ sudo docker start quarknode
 
 **Important** Once a container has been created with either option above, remember to not follow either of the options again, unless you want to clear out your wallet.
 
-Also, when you initial start the container keep in mind that it can also take upto 45 minutes before it's on the network and actively participating. I think this is due to the limited amount of RAM on the virtual machines.
+Also, when you initially start the container, keep in mind that it can also take upto 45 minutes before it's on the network and actively participating. I think this is due to the limited amount of RAM on the virtual machines.
 
 Also, once you have a container running, the nice way to stop the container is to stop the Quark daemon first. Once Quark has been stopped them the container will automatically end since that was the only process that we told the container to execute.
 
@@ -85,7 +85,7 @@ How to see what your quarknode is doing:
 sudo docker attach --sig-proxy=false quarknode
 ```
 
-This is view only and you can quit out of that command (CTRL+c) without causing any damage to the container. If you don't see anything pop up for a while, keep in mind that it can take upto 45 minutes for the daemon to be happy and join the network. Once joined it'll start outputting network information.
+This is view only and you can quit out of that command (CTRL+c) without causing any damage to the container. If you don't see anything pop up for a while, keep in mind that it can take upto 45 minutes for the daemon to be happy and join the network. Once joined you'll see network information (assuming you're attached to the container).
 
 if you want to run additional commands in the container, say to look at your wallet, create new addresses, and or send Quark, then you'll need to do the following:
 
@@ -113,11 +113,6 @@ exit
 
 Then you can exit out of the session and the container will automatically stop when the daemon has exited successfully. Keep in mind that my 512MB virtual server takes about 25 minutes for Quark to exit.
 
+Finally, if you've found this information helpful, please consider donating to help me know that there was somebody out there who found some benefit to this information.
 
-
-### Wallet management
-
-More information coming shortly.
-
-
-
+QRK Address: QhVj6WwnSPtUzyEQF3xHgCMWmePDe9BQvf
