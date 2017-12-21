@@ -16,7 +16,7 @@ This assumes you already have a machine (Ubuntu in this case) with Docker instal
 
 ### Option 1: Download from Docker
 
-Just download the image and run it! Running the image will create a new container with a fresh wallet that is completely yours. The Docker image you download does not contain a wallet file, so whenever you execute the 'docker run' command you'll basically start from scratch again with a fresh wallet. However, the blockchain will still be reset back to the snapshot of Dec 18th 2017.
+Just [download the image](https://store.docker.com/community/images/imcm/quarknode) and run it! Running the image will create a new container with a fresh wallet that is completely yours. The Docker image you download does not contain a wallet file, so whenever you execute the 'docker run' command you'll basically start from scratch again with a fresh wallet. However, the blockchain will still be reset back to the snapshot of Dec 18th 2017.
 
 ```bash
 sudo docker run -d -p 8373:8373 --name quarknode imcm/quarknode:dec182017
