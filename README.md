@@ -42,7 +42,7 @@ docker attach quarknode
 
 ### Quick block update
 
-**You only need to follow this section is you picked Option 2 above and want to sync quickly with the blockchain.** A blockchain snapshot was taken Dec 18th 2017 and will help your quarknode get up to sync much faster than waitiing for a full sync to occur since you won't have to download all of the blocks from other Quark wallets. Trust me, this will save you bandwidth and time.
+**You only need to follow this section if you picked Option 2 above and want to sync quickly with the blockchain.** A blockchain snapshot was taken Dec 18th 2017 and will help your quarknode get up to sync much faster than waitiing for a full sync to occur since you won't have to download all of the blocks from other Quark wallets. Trust me, this will save you bandwidth and time.
 
 ```bash
 # cd your home directory 
